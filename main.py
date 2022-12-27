@@ -94,13 +94,13 @@ words_omission = {'GCN': load_data_txt('./data/omission_gcn.txt'),
 
 words_saliency = {'GCN': load_data_txt('./data/saliency_gcn.txt'),
                   'GAT': load_data_txt('./data/saliency_gat.txt'),
-                  'SAGEGraph': load_data_txt('./data/saliency_gat.txt'),
+                  'SAGEGraph': load_data_txt('./data/saliency_sage.txt'),
                   'SimpleGCN': load_data_txt('./data/saliency_gcn.txt')
                   }
 
 words_random = {'GCN': load_data_txt('./data/random_gcn.txt'),
                 'GAT': load_data_txt('./data/random_gat.txt'),
-                'SAGEGraph': load_data_txt('./data/random_gat.txt'),
+                'SAGEGraph': load_data_txt('./data/random_sage.txt'),
                 'SimpleGCN': load_data_txt('./data/random_gcn.txt')
                   }
 
