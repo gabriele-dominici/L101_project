@@ -177,14 +177,14 @@ elif option_expl == 'saliency':
 elif option_expl == 'random':
     words = words_random[dataset]
 
-col = st.selectbox("Select models",
+col = st.multiselect("Select models",
                       words.keys())
 
 st.session_state["k"] = st.slider('How many top words would you like to see?', min_value=5, max_value=50, value=10,
                                   step=1)
 st.session_state['tokenized'] = tokenize_func[dataset](st.session_state["option"])
 subset_words = {}
-for model in  col:
+for model in col:
     words_selected = words[model][index[0]]
     k_tmp = min(st.session_state["k"], len(words_selected))
     subset_words[model] = words_selected[:k_tmp]
