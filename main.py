@@ -166,11 +166,9 @@ st.text(label_text)
 index = data[dataset].index[data[dataset]['data'] == st.session_state["option"]]
 st.subheader('Explainations')
 
-col = st.selectbox("Select models",
-                      words_random.keys())
-
 option_expl = st.selectbox("Select explainability methods",
                       ['random', 'omission', 'saliency'])
+col = []
 
 if option_expl == 'omission':
     words = words_omission[dataset]
@@ -178,6 +176,9 @@ elif option_expl == 'saliency':
     words = words_saliency[dataset]
 elif option_expl == 'random':
     words = words_random[dataset]
+
+col = st.selectbox("Select models",
+                      words.keys())
 
 st.session_state["k"] = st.slider('How many top words would you like to see?', min_value=5, max_value=50, value=10,
                                   step=1)
