@@ -86,59 +86,89 @@ st.title('GNNs Explaination')
 
 data_load_state = st.text('Loading data...')
 
-words_omission = {'GCN': load_data_txt('./data/omission_gcn.txt'),
+words_omission ={'20news_group': {'GCN': load_data_txt('./data/omission_gcn.txt'),
                   'GAT': load_data_txt('./data/omission_gat.txt'),
-                  'SAGEGraph': load_data_txt('./data/omission_gat.txt'),
-                  'SimpleGCN': load_data_txt('./data/omission_gcn.txt')
+                  'SAGEGraph': load_data_txt('./data/omission_sage.txt'),
+                  'SimpleGCN': load_data_txt('./data/omission_simple.txt')
+                                  },
+                 'movie': {'GCN': load_data_txt('./data/omission_gcn_movie.txt'),
+                          'GAT': load_data_txt('./data/omission_gat_movie.txt'),
+                          'SAGEGraph': load_data_txt('./data/omission_sage_movie.txt'),
+                          'SimpleGCN': load_data_txt('./data/omission_simple_movie.txt')
+                                  }
                   }
 
-words_saliency = {'GCN': load_data_txt('./data/saliency_gcn.txt'),
-                  'GAT': load_data_txt('./data/saliency_gat.txt'),
-                  'SAGEGraph': load_data_txt('./data/saliency_sage.txt'),
-                  'SimpleGCN': load_data_txt('./data/saliency_gcn.txt')
-                  }
+words_saliency = {'20news_group': {'GCN': load_data_txt('./data/saliency_gcn.txt'),
+                                      'GAT': load_data_txt('./data/saliency_gat.txt'),
+                                      'SAGEGraph': load_data_txt('./data/saliency_sage.txt'),
+                                      'SimpleGCN': load_data_txt('./data/saliency_simple.txt')
+                                    },
+                     'movie': {'GCN': load_data_txt('./data/saliency_gcn_movie.txt'),
+                              'GAT': load_data_txt('./data/saliency_gat_movie.txt'),
+                              'SAGEGraph': load_data_txt('./data/saliency_sage_movie.txt'),
+                              'SimpleGCN': load_data_txt('./data/saliency_simple_movie.txt')
+                             }
+                    }
 
-words_random = {'GCN': load_data_txt('./data/random_gcn.txt'),
-                'GAT': load_data_txt('./data/random_gat.txt'),
-                'SAGEGraph': load_data_txt('./data/random_sage.txt'),
-                'SimpleGCN': load_data_txt('./data/random_gcn.txt')
-                  }
+words_random = {'20news_group': {'GCN': load_data_txt('./data/random_gcn.txt'),
+                                 'GAT': load_data_txt('./data/random_gat.txt'),
+                                 'SAGEGraph': load_data_txt('./data/random_sage.txt'),
+                                 'SimpleGCN': load_data_txt('./data/random_simple.txt')
+                                },
+                'movie': {'GCN': load_data_txt('./data/random_gcn_movie.txt'),
+                          'GAT': load_data_txt('./data/random_gat_movie.txt'),
+                          'SAGEGraph': load_data_txt('./data/random_sage_movie.txt'),
+                          'SimpleGCN': load_data_txt('./data/random_simple_movie.txt')
+                        }
+                }
 
-data = load_data_csv('./data/test_data_text.csv')
-train_data = load_data_csv('./data/train_data_text.csv')
+data = {'20news_group': load_data_csv('./data/test_data_text.csv'),
+        'movie': load_data_csv('./data/test_data_movie.csv')}
+train_data = {'20news_group': load_data_csv('./data/train_data_text.csv'),
+              'movie': load_data_csv('./data/train_data_movie.csv')}
 
-vectorizer = TfidfVectorizer(lowercase=True, min_df=10, max_df=0.25, norm='l1')
+vectorizer = {'20news_group': TfidfVectorizer(lowercase=True, min_df=10, max_df=0.25, norm='l1'),
+              'movie': TfidfVectorizer(lowercase=True, min_df=10, max_df=0.25, norm='l1')}
 
-vectorizer.fit(train_data['data'])
-tokenize_func = vectorizer.build_analyzer()
-vocab = vectorizer.vocabulary_
+vectorizer['20news_group'].fit(train_data['20news_group']['data'])
+vectorizer['movie'].fit(train_data['movie']['data'])
+tokenize_func = {'20news_group': vectorizer['20news_group'].build_analyzer(),
+                 'movie': vectorizer['movie'].build_analyzer()}
+vocab = {'20news_group': vectorizer['20news_group'].vocabulary_,
+         'movie': vectorizer['movie'].vocabulary_}
 
 data_load_state.text('Loading data...done!')
 
-option = st.selectbox("Select from examples",
-                      data['data'])
+dataset = st.selectbox("Select the dataset",
+                      ['20news_group',
+                       'movie'])
+
+st.session_state["option"] = st.selectbox("Select from examples",
+                      data[dataset]['data'])
+
+
 
 st.subheader('Chosen Text')
-st.text(option)
+st.text(st.session_state["option"])
 
 st.subheader('Labels')
-st.text(data[data['data'] == option]['label'].iloc[0])
+st.text(data[dataset][data[dataset]['data'] == st.session_state["option"]]['label'].iloc[0])
 
-index = data.index[data['data'] == option]
+index = data[dataset].index[data[dataset]['data'] == st.session_state["option"]]
 
 option_expl = st.selectbox("Select explainability methods",
                       ['random', 'omission', 'saliency'])
 
 if option_expl == 'omission':
-    words = words_omission
+    words = words_omission[dataset]
 elif option_expl == 'saliency':
-    words = words_saliency
+    words = words_saliency[dataset]
 elif option_expl == 'random':
-    words = words_random
+    words = words_random[dataset]
 
 st.session_state["k"] = st.slider('How many top words would you like to see?', min_value=5, max_value=50, value=10,
                                   step=1)
-st.session_state['tokenized'] = tokenize_func(option)
+st.session_state['tokenized'] = tokenize_func[dataset](st.session_state["option"])
 subset_words = {}
 for model in words.keys():
     words_selected = words[model][index[0]]
@@ -146,10 +176,10 @@ for model in words.keys():
     subset_words[model] = words_selected[:k_tmp]
 
     st.subheader(model)
-    annotated_text(*compose_text(st.session_state['tokenized'], subset_words[model], option))
+    annotated_text(*compose_text(st.session_state['tokenized'], subset_words[model], st.session_state["option"]))
 
 st.subheader('Created Graph')
-st.graphviz_chart(create_graph(st.session_state['tokenized'] , vocab))
+st.graphviz_chart(create_graph(st.session_state['tokenized'] , vocab[dataset]))
 
 st.subheader('Jaccard Similarity')
 
@@ -163,12 +193,6 @@ for i, el1 in enumerate(col):
     df = pd.concat([df, pd.DataFrame([row.copy()])])
 df.index = col
 st.table(df)
-
-
-
-
-
-
 
 
 
