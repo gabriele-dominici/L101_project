@@ -86,41 +86,78 @@ st.title('GNNs Explaination')
 
 data_load_state = st.text('Loading data...')
 
-words_omission ={'20news_group': {'GCN': load_data_txt('./data/omission_gcn.txt'),
-                  'GAT': load_data_txt('./data/omission_gat.txt'),
-                  'SAGEGraph': load_data_txt('./data/omission_sage.txt'),
-                  'SimpleGCN': load_data_txt('./data/omission_simple.txt')
+words_omission ={'20news_group': {'MLP': load_data_txt('./data/omission_mlp.txt'),
+                  'GCN_2Layer_Mean': load_data_txt('./data/omission_gcn.txt'),
+                  'GCN_2Layer_Max': load_data_txt('./data/omission_gcn_max.txt'),
+                  'GAT_2Layer_Mean': load_data_txt('./data/omission_gat.txt'),
+                  'GAT_2Layer_Max': load_data_txt('./data/omission_gat_max.txt'),
+                  'SAGEGraph_2Layer_Mean': load_data_txt('./data/omission_sage.txt'),
+                  'SAGEGraph_2Layer_Max': load_data_txt('./data/omission_sage_max.txt'),
+                  'SimpleGCN_2Layer_Mean': load_data_txt('./data/omission_simple.txt'),
+                  'SimpleGCN_2Layer_Max': load_data_txt('./data/omission_simple_max.txt')
                                   },
-                 'movie': {'GCN': load_data_txt('./data/omission_gcn_movie.txt'),
-                          'GAT': load_data_txt('./data/omission_gat_movie.txt'),
-                          'SAGEGraph': load_data_txt('./data/omission_sage_movie.txt'),
-                          'SimpleGCN': load_data_txt('./data/omission_simple_movie.txt')
+                 'movie': {'MLP': load_data_txt('./data/omission_mlp_movie.txt'),
+                           #'GCN_2Layer_Mean': load_data_txt('./data/omission_gcn_movie.txt'),
+                          #'GAT': load_data_txt('./data/omission_gat_movie.txt'),
+                          #'SAGEGraph': load_data_txt('./data/omission_sage_movie.txt'),
+                          #'SimpleGCN': load_data_txt('./data/omission_simple_movie.txt')
                                   }
                   }
 
-words_saliency = {'20news_group': {'GCN': load_data_txt('./data/saliency_gcn.txt'),
-                                      'GAT': load_data_txt('./data/saliency_gat.txt'),
-                                      'SAGEGraph': load_data_txt('./data/saliency_sage.txt'),
-                                      'SimpleGCN': load_data_txt('./data/saliency_simple.txt')
+words_saliency = {'20news_group': {'MLP': load_data_txt('./data/saliency_mlp.txt'),
+                                   'GCN_2Layer_Mean': load_data_txt('./data/saliency_gcn.txt'),
+                                   'GCN_2Layer_Max': load_data_txt('./data/saliency_gcn_max.txt'),
+                                   'GAT_2Layer_Mean': load_data_txt('./data/saliency_gat.txt'),
+                                   'GAT_2Layer_Max': load_data_txt('./data/saliency_gat_max.txt'),
+                                   'SAGEGraph_2Layer_Mean': load_data_txt('./data/saliency_sage.txt'),
+                                   'SAGEGraph_2Layer_Max': load_data_txt('./data/saliency_sage_max.txt'),
+                                   'SimpleGCN_2Layer_Mean': load_data_txt('./data/saliency_simple.txt'),
+                                   'SimpleGCN_2Layer_Max': load_data_txt('./data/saliency_simple_max.txt')
                                     },
-                     'movie': {'GCN': load_data_txt('./data/saliency_gcn_movie.txt'),
-                              'GAT': load_data_txt('./data/saliency_gat_movie.txt'),
-                              'SAGEGraph': load_data_txt('./data/saliency_sage_movie.txt'),
-                              'SimpleGCN': load_data_txt('./data/saliency_simple_movie.txt')
+                     'movie': {'MLP': load_data_txt('./data/saliency_mlp_movie.txt'),
+                               #'GCN_2Layer_Mean': load_data_txt('./data/saliency_gcn_movie.txt'),
+                              #'GAT': load_data_txt('./data/saliency_gat_movie.txt'),
+                              #'SAGEGraph': load_data_txt('./data/saliency_sage_movie.txt'),
+                              #'SimpleGCN': load_data_txt('./data/saliency_simple_movie.txt')
                              }
                     }
 
-words_random = {'20news_group': {'GCN': load_data_txt('./data/random_gcn.txt'),
-                                 'GAT': load_data_txt('./data/random_gat.txt'),
-                                 'SAGEGraph': load_data_txt('./data/random_sage.txt'),
-                                 'SimpleGCN': load_data_txt('./data/random_simple.txt')
+words_random = {'20news_group': {'MLP': load_data_txt('./data/random_mlp.txt'),
+                                 'GCN_2Layer_Mean': load_data_txt('./data/random_gcn.txt'),
+                                 'GCN_2Layer_Max': load_data_txt('./data/random_gcn_max.txt'),
+                                 'GAT_2Layer_Mean': load_data_txt('./data/random_gat.txt'),
+                                 'GAT_2Layer_Max': load_data_txt('./data/random_gat_max.txt'),
+                                 'SAGEGraph_2Layer_Mean': load_data_txt('./data/random_sage.txt'),
+                                 'SAGEGraph_2Layer_Max': load_data_txt('./data/random_sage_max.txt'),
+                                 'SimpleGCN_2Layer_Mean': load_data_txt('./data/random_simple.txt'),
+                                 'SimpleGCN_2Layer_Max': load_data_txt('./data/random_simple_max.txt')
                                 },
-                'movie': {'GCN': load_data_txt('./data/random_gcn_movie.txt'),
-                          'GAT': load_data_txt('./data/random_gat_movie.txt'),
-                          'SAGEGraph': load_data_txt('./data/random_sage_movie.txt'),
-                          'SimpleGCN': load_data_txt('./data/random_simple_movie.txt')
+                'movie': {'MLP': load_data_txt('./data/random_mlp_movie.txt'),
+                          #'GCN_2Layer_Mean': load_data_txt('./data/random_gcn_movie.txt'),
+                          #'GAT': load_data_txt('./data/random_gat_movie.txt'),
+                          #'SAGEGraph': load_data_txt('./data/random_sage_movie.txt'),
+                          #'SimpleGCN': load_data_txt('./data/random_simple_movie.txt')
                         }
                 }
+
+predictions = {
+                '20news_group': {'MLP': load_data_txt('./data/mlp_news.csv'),
+                                 'GCN_2Layer_Mean': load_data_txt('./data/gcn_2_mean_news.csv'),
+                                 'GCN_2Layer_Max': load_data_txt('./data/gcn_2_max_news.csv'),
+                                 'GAT_2Layer_Mean': load_data_txt('./data/gat_2_mean_news.csv'),
+                                 'GAT_2Layer_Max': load_data_txt('./data/gat_2_max_news.csv'),
+                                 'SAGEGraph_2Layer_Mean': load_data_txt('./data/sage_2_mean_news.csv'),
+                                 'SAGEGraph_2Layer_Max': load_data_txt('./data/sage_2_max_news.csv'),
+                                 'SimpleGCN_2Layer_Mean': load_data_txt('./data/simple_2_mean_news.csv'),
+                                 'SimpleGCN_2Layer_Max': load_data_txt('./data/simple_2_max_news.csv')
+                                },
+                'movie': {'MLP': load_data_txt('./data/mlp_movie.csv'),
+                          #'GCN_2Layer_Mean': load_data_txt('./data/'),
+                          #'GAT': load_data_txt('./data/'),
+                          #'SAGEGraph': load_data_txt('./data/'),
+                          #'SimpleGCN': load_data_txt('./data/')
+                        }
+}
 
 data = {'20news_group': load_data_csv('./data/test_data_text.csv'),
         'movie': load_data_csv('./data/test_data_movie.csv')}
@@ -186,10 +223,21 @@ st.session_state['tokenized'] = tokenize_func[dataset](st.session_state["option"
 subset_words = {}
 for model in col:
     words_selected = words[model][index[0]]
+
+    pred_label = predictions[dataset][model][index[0]]
+    if pred_label == 1 and dataset == '20news_group':
+        pred_label = 'Atheism'
+    elif pred_label == 0 and dataset == '20news_group':
+        pred_label = 'Christian'
+    elif pred_label == 1 and dataset == 'movie':
+        pred_label = 'Positive'
+    elif pred_label == 0 and dataset == 'movie':
+        pred_label = 'Negative'
     k_tmp = min(st.session_state["k"], len(words_selected))
     subset_words[model] = words_selected[:k_tmp]
 
     st.subheader(model)
+    st.text(f'Prediction of the model: {pred_label}')
     annotated_text(*compose_text(st.session_state['tokenized'], subset_words[model], st.session_state["option"]))
 
 st.subheader('Created Graph')
