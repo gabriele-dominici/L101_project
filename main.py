@@ -223,8 +223,7 @@ st.session_state['tokenized'] = tokenize_func[dataset](st.session_state["option"
 subset_words = {}
 for model in col:
     words_selected = words[model][index[0]]
-
-    pred_label = predictions[dataset][model][index[0]]
+    pred_label = predictions[dataset][model].iloc[index[0]][0]
     if pred_label == 1 and dataset == '20news_group':
         pred_label = 'Atheism'
     elif pred_label == 0 and dataset == '20news_group':
