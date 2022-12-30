@@ -141,21 +141,21 @@ words_random = {'20news_group': {'MLP': load_data_txt('./data/random_mlp.txt'),
                 }
 
 predictions = {
-                '20news_group': {'MLP': load_data_txt('./data/mlp_news.csv'),
-                                 'GCN_2Layer_Mean': load_data_txt('./data/gcn_2_mean_news.csv'),
-                                 'GCN_2Layer_Max': load_data_txt('./data/gcn_2_max_news.csv'),
-                                 'GAT_2Layer_Mean': load_data_txt('./data/gat_2_mean_news.csv'),
-                                 'GAT_2Layer_Max': load_data_txt('./data/gat_2_max_news.csv'),
-                                 'SAGEGraph_2Layer_Mean': load_data_txt('./data/sage_2_mean_news.csv'),
-                                 'SAGEGraph_2Layer_Max': load_data_txt('./data/sage_2_max_news.csv'),
-                                 'SimpleGCN_2Layer_Mean': load_data_txt('./data/simple_2_mean_news.csv'),
-                                 'SimpleGCN_2Layer_Max': load_data_txt('./data/simple_2_max_news.csv')
+                '20news_group': {'MLP': load_data_csv('./data/mlp_news.csv'),
+                                 'GCN_2Layer_Mean': load_data_csv('./data/gcn_2_mean_news.csv'),
+                                 'GCN_2Layer_Max': load_data_csv('./data/gcn_2_max_news.csv'),
+                                 'GAT_2Layer_Mean': load_data_csv('./data/gat_2_mean_news.csv'),
+                                 'GAT_2Layer_Max': load_data_csv('./data/gat_2_max_news.csv'),
+                                 'SAGEGraph_2Layer_Mean': load_data_csv('./data/sage_2_mean_news.csv'),
+                                 'SAGEGraph_2Layer_Max': load_data_csv('./data/sage_2_max_news.csv'),
+                                 'SimpleGCN_2Layer_Mean': load_data_csv('./data/simple_2_mean_news.csv'),
+                                 'SimpleGCN_2Layer_Max': load_data_csv('./data/simple_2_max_news.csv')
                                 },
-                'movie': {'MLP': load_data_txt('./data/mlp_movie.csv'),
-                          #'GCN_2Layer_Mean': load_data_txt('./data/'),
-                          #'GAT': load_data_txt('./data/'),
-                          #'SAGEGraph': load_data_txt('./data/'),
-                          #'SimpleGCN': load_data_txt('./data/')
+                'movie': {'MLP': load_data_csv('./data/mlp_movie.csv'),
+                          #'GCN_2Layer_Mean': load_data_csv('./data/'),
+                          #'GAT': load_data_csv('./data/'),
+                          #'SAGEGraph': load_data_csv('./data/'),
+                          #'SimpleGCN': load_data_csv('./data/')
                         }
 }
 
