@@ -152,7 +152,16 @@ st.subheader('Chosen Text')
 st.text(st.session_state["option"])
 
 st.subheader('Labels')
-st.text(data[dataset][data[dataset]['data'] == st.session_state["option"]]['label'].iloc[0])
+label = data[dataset][data[dataset]['data'] == st.session_state["option"]]['label'].iloc[0]
+if label == 1 and dataset == '20news_group':
+    label_text = 'Atheism'
+elif label == 0 and dataset == '20news_group':
+    label_text = 'Christian'
+elif label == 1 and dataset == 'movie':
+    label_text = 'Positive'
+elif label == 0 and dataset == 'movie':
+    label_text = 'Negative'
+st.text(label_text)
 
 index = data[dataset].index[data[dataset]['data'] == st.session_state["option"]]
 
