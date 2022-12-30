@@ -151,7 +151,7 @@ st.session_state["option"] = st.selectbox("Select from examples",
 st.subheader('Chosen Text')
 st.text(st.session_state["option"])
 
-st.subheader('Labels')
+st.subheader('Label')
 label = data[dataset][data[dataset]['data'] == st.session_state["option"]]['label'].iloc[0]
 if label == 1 and dataset == '20news_group':
     label_text = 'Atheism'
@@ -164,6 +164,10 @@ elif label == 0 and dataset == 'movie':
 st.text(label_text)
 
 index = data[dataset].index[data[dataset]['data'] == st.session_state["option"]]
+st.subheader('Explainations')
+
+col = st.selectbox("Select models",
+                      words_random.keys())
 
 option_expl = st.selectbox("Select explainability methods",
                       ['random', 'omission', 'saliency'])
@@ -179,7 +183,7 @@ st.session_state["k"] = st.slider('How many top words would you like to see?', m
                                   step=1)
 st.session_state['tokenized'] = tokenize_func[dataset](st.session_state["option"])
 subset_words = {}
-for model in words.keys():
+for model in  col:
     words_selected = words[model][index[0]]
     k_tmp = min(st.session_state["k"], len(words_selected))
     subset_words[model] = words_selected[:k_tmp]
@@ -192,7 +196,6 @@ st.graphviz_chart(create_graph(st.session_state['tokenized'] , vocab[dataset]))
 
 st.subheader('Jaccard Similarity')
 
-col = ['GCN', 'GAT', 'SAGEGraph', 'SimpleGCN']
 df = pd.DataFrame([], columns=col)
 
 for i, el1 in enumerate(col):
