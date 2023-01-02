@@ -97,10 +97,14 @@ words_omission ={'20news_group': {'MLP': load_data_txt('./data/omission_mlp.txt'
                   'SimpleGCN_2Layer_Max': load_data_txt('./data/omission_simple_max.txt')
                                   },
                  'movie': {'MLP': load_data_txt('./data/omission_mlp_movie.txt'),
-                           #'GCN_2Layer_Mean': load_data_txt('./data/omission_gcn_movie.txt'),
-                          #'GAT': load_data_txt('./data/omission_gat_movie.txt'),
-                          #'SAGEGraph': load_data_txt('./data/omission_sage_movie.txt'),
-                          #'SimpleGCN': load_data_txt('./data/omission_simple_movie.txt')
+                           'GCN_2Layer_Mean': load_data_txt('./data/omission_gcn_movie.txt'),
+                           'GCN_2Layer_Max': load_data_txt('./data/omission_gcn_max_movie.txt'),
+                           'GAT_2Layer_Mean': load_data_txt('./data/omission_gat_movie.txt'),
+                           'GAT_2Layer_Max': load_data_txt('./data/omission_gat_max_movie.txt'),
+                           'SAGEGraph_2Layer_Mean': load_data_txt('./data/omission_sage_movie.txt'),
+                           'SAGEGraph_2Layer_Max': load_data_txt('./data/omission_sage_max_movie.txt'),
+                           'SimpleGCN_2Layer_Mean': load_data_txt('./data/omission_simple_movie.txt'),
+                           'SimpleGCN_2Layer_Max': load_data_txt('./data/omission_simple_max_movie.txt')
                                   }
                   }
 
@@ -115,10 +119,14 @@ words_saliency = {'20news_group': {'MLP': load_data_txt('./data/saliency_mlp.txt
                                    'SimpleGCN_2Layer_Max': load_data_txt('./data/saliency_simple_max.txt')
                                     },
                      'movie': {'MLP': load_data_txt('./data/saliency_mlp_movie.txt'),
-                               #'GCN_2Layer_Mean': load_data_txt('./data/saliency_gcn_movie.txt'),
-                              #'GAT': load_data_txt('./data/saliency_gat_movie.txt'),
-                              #'SAGEGraph': load_data_txt('./data/saliency_sage_movie.txt'),
-                              #'SimpleGCN': load_data_txt('./data/saliency_simple_movie.txt')
+                               'GCN_2Layer_Mean': load_data_txt('./data/saliency_gcn_movie.txt'),
+                               'GCN_2Layer_Max': load_data_txt('./data/saliency_gcn_max_movie.txt'),
+                               'GAT_2Layer_Mean': load_data_txt('./data/saliency_gat_movie.txt'),
+                               'GAT_2Layer_Max': load_data_txt('./data/saliency_gat_max_movie.txt'),
+                               'SAGEGraph_2Layer_Mean': load_data_txt('./data/saliency_sage_movie.txt'),
+                               'SAGEGraph_2Layer_Max': load_data_txt('./data/saliency_sage_max_movie.txt'),
+                               'SimpleGCN_2Layer_Mean': load_data_txt('./data/saliency_simple_movie.txt'),
+                               'SimpleGCN_2Layer_Max': load_data_txt('./data/saliency_simple_max_movie.txt')
                              }
                     }
 
@@ -133,11 +141,15 @@ words_random = {'20news_group': {'MLP': load_data_txt('./data/random_mlp.txt'),
                                  'SimpleGCN_2Layer_Max': load_data_txt('./data/random_simple_max.txt')
                                 },
                 'movie': {'MLP': load_data_txt('./data/random_mlp_movie.txt'),
-                          #'GCN_2Layer_Mean': load_data_txt('./data/random_gcn_movie.txt'),
-                          #'GAT': load_data_txt('./data/random_gat_movie.txt'),
-                          #'SAGEGraph': load_data_txt('./data/random_sage_movie.txt'),
-                          #'SimpleGCN': load_data_txt('./data/random_simple_movie.txt')
-                        }
+                          'GCN_2Layer_Mean': load_data_txt('./data/random_gcn_movie.txt'),
+                          'GCN_2Layer_Max': load_data_txt('./data/random_gcn_max_movie.txt'),
+                          'GAT_2Layer_Mean': load_data_txt('./data/random_gat_movie.txt'),
+                          'GAT_2Layer_Max': load_data_txt('./data/random_gat_max_movie.txt'),
+                          'SAGEGraph_2Layer_Mean': load_data_txt('./data/random_sage_movie.txt'),
+                          'SAGEGraph_2Layer_Max': load_data_txt('./data/random_sage_max_movie.txt'),
+                          'SimpleGCN_2Layer_Mean': load_data_txt('./data/random_simple_movie.txt'),
+                          'SimpleGCN_2Layer_Max': load_data_txt('./data/random_simple_max_movie.txt')
+                          }
                 }
 
 predictions = {
@@ -152,10 +164,14 @@ predictions = {
                                  'SimpleGCN_2Layer_Max': load_data_csv('./data/simple_2_max_news.csv')
                                 },
                 'movie': {'MLP': load_data_csv('./data/mlp_movie.csv'),
-                          #'GCN_2Layer_Mean': load_data_csv('./data/'),
-                          #'GAT': load_data_csv('./data/'),
-                          #'SAGEGraph': load_data_csv('./data/'),
-                          #'SimpleGCN': load_data_csv('./data/')
+                          'GCN_2Layer_Mean': load_data_csv('./data/gcn_2_mean_movie.csv'),
+                          'GCN_2Layer_Max': load_data_csv('./data/gcn_2_max_movie.csv'),
+                          'GAT_2Layer_Mean': load_data_csv('./data/gat_2_mean_movie.csv'),
+                          'GAT_2Layer_Max': load_data_csv('./data/gat_2_max_movie.csv'),
+                          'SAGEGraph_2Layer_Mean': load_data_csv('./data/sage_2_mean_movie.csv'),
+                          'SAGEGraph_2Layer_Max': load_data_csv('./data/sage_2_max_movie.csv'),
+                          'SimpleGCN_2Layer_Mean': load_data_csv('./data/simple_2_mean_movie.csv'),
+                          'SimpleGCN_2Layer_Max': load_data_csv('./data/simple_2_max_movie.csv')
                         }
 }
 
