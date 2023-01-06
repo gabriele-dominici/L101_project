@@ -96,9 +96,9 @@ words_omission ={'20news_group': {'MLP': load_data_txt('./data/omission_mlp.txt'
                   'SAGEGraph_2Layer_Mean': load_data_txt('./data/omission_sage.txt'),
                   'SAGEGraph_3Layer_Mean': load_data_txt('./data/omission_sage_3.txt'),
                   'SAGEGraph_2Layer_Max': load_data_txt('./data/omission_sage_max.txt'),
-                  'SimpleGCN_2Layer_Mean': load_data_txt('./data/omission_simple.txt'),
-                  'SimpleGCN_3Layer_Mean': load_data_txt('./data/omission_simple_3.txt'),
-                  'SimpleGCN_2Layer_Max': load_data_txt('./data/omission_simple_max.txt')
+                  'SGC_2Layer_Mean': load_data_txt('./data/omission_simple.txt'),
+                  'SGC_3Layer_Mean': load_data_txt('./data/omission_simple_3.txt'),
+                  'SGC_2Layer_Max': load_data_txt('./data/omission_simple_max.txt')
                                   },
                  'movie': {'MLP': load_data_txt('./data/omission_mlp_movie.txt'),
                            'GCN_2Layer_Mean': load_data_txt('./data/omission_gcn_movie.txt'),
@@ -110,9 +110,9 @@ words_omission ={'20news_group': {'MLP': load_data_txt('./data/omission_mlp.txt'
                            'SAGEGraph_2Layer_Mean': load_data_txt('./data/omission_sage_movie.txt'),
                            'SAGEGraph_3Layer_Mean': load_data_txt('./data/omission_sage_3_movie.txt'),
                            'SAGEGraph_2Layer_Max': load_data_txt('./data/omission_sage_max_movie.txt'),
-                           'SimpleGCN_2Layer_Mean': load_data_txt('./data/omission_simple_movie.txt'),
-                           'SimpleGCN_3Layer_Mean': load_data_txt('./data/omission_simple_3_movie.txt'),
-                           'SimpleGCN_2Layer_Max': load_data_txt('./data/omission_simple_max_movie.txt')
+                           'SGC_2Layer_Mean': load_data_txt('./data/omission_simple_movie.txt'),
+                           'SGC_3Layer_Mean': load_data_txt('./data/omission_simple_3_movie.txt'),
+                           'SGC_2Layer_Max': load_data_txt('./data/omission_simple_max_movie.txt')
                                   }
                   }
 
@@ -126,9 +126,9 @@ words_saliency = {'20news_group': {'MLP': load_data_txt('./data/saliency_mlp.txt
                                    'SAGEGraph_2Layer_Mean': load_data_txt('./data/saliency_sage.txt'),
                                    'SAGEGraph_3Layer_Mean': load_data_txt('./data/saliency_sage_3.txt'),
                                    'SAGEGraph_2Layer_Max': load_data_txt('./data/saliency_sage_max.txt'),
-                                   'SimpleGCN_2Layer_Mean': load_data_txt('./data/saliency_simple.txt'),
-                                   'SimpleGCN_3Layer_Mean': load_data_txt('./data/saliency_simple_3.txt'),
-                                   'SimpleGCN_2Layer_Max': load_data_txt('./data/saliency_simple_max.txt')
+                                   'SGC_2Layer_Mean': load_data_txt('./data/saliency_simple.txt'),
+                                   'SGC_3Layer_Mean': load_data_txt('./data/saliency_simple_3.txt'),
+                                   'SGC_2Layer_Max': load_data_txt('./data/saliency_simple_max.txt')
                                     },
                      'movie': {'MLP': load_data_txt('./data/saliency_mlp_movie.txt'),
                                'GCN_2Layer_Mean': load_data_txt('./data/saliency_gcn_movie.txt'),
@@ -140,9 +140,9 @@ words_saliency = {'20news_group': {'MLP': load_data_txt('./data/saliency_mlp.txt
                                'SAGEGraph_2Layer_Mean': load_data_txt('./data/saliency_sage_movie.txt'),
                                'SAGEGraph_3Layer_Mean': load_data_txt('./data/saliency_sage_3_movie.txt'),
                                'SAGEGraph_2Layer_Max': load_data_txt('./data/saliency_sage_max_movie.txt'),
-                               'SimpleGCN_2Layer_Mean': load_data_txt('./data/saliency_simple_movie.txt'),
-                               'SimpleGCN_3Layer_Mean': load_data_txt('./data/saliency_simple_3_movie.txt'),
-                               'SimpleGCN_2Layer_Max': load_data_txt('./data/saliency_simple_max_movie.txt')
+                               'SGC_2Layer_Mean': load_data_txt('./data/saliency_simple_movie.txt'),
+                               'SGC_3Layer_Mean': load_data_txt('./data/saliency_simple_3_movie.txt'),
+                               'SGC_2Layer_Max': load_data_txt('./data/saliency_simple_max_movie.txt')
                              }
                     }
 
@@ -156,9 +156,9 @@ words_random = {'20news_group': {'MLP': load_data_txt('./data/random_mlp.txt'),
                                  'SAGEGraph_2Layer_Mean': load_data_txt('./data/random_sage.txt'),
                                  'SAGEGraph_3Layer_Mean': load_data_txt('./data/random_sage_3.txt'),
                                  'SAGEGraph_2Layer_Max': load_data_txt('./data/random_sage_max.txt'),
-                                 'SimpleGCN_2Layer_Mean': load_data_txt('./data/random_simple.txt'),
-                                 'SimpleGCN_3Layer_Mean': load_data_txt('./data/random_simple_3.txt'),
-                                 'SimpleGCN_2Layer_Max': load_data_txt('./data/random_simple_max.txt')
+                                 'SGC_2Layer_Mean': load_data_txt('./data/random_simple.txt'),
+                                 'SGC_3Layer_Mean': load_data_txt('./data/random_simple_3.txt'),
+                                 'SGC_2Layer_Max': load_data_txt('./data/random_simple_max.txt')
                                 },
                 'movie': {'MLP': load_data_txt('./data/random_mlp_movie.txt'),
                           'GCN_2Layer_Mean': load_data_txt('./data/random_gcn_movie.txt'),
@@ -170,12 +170,38 @@ words_random = {'20news_group': {'MLP': load_data_txt('./data/random_mlp.txt'),
                           'SAGEGraph_2Layer_Mean': load_data_txt('./data/random_sage_movie.txt'),
                           'SAGEGraph_3Layer_Mean': load_data_txt('./data/random_sage_3_movie.txt'),
                           'SAGEGraph_2Layer_Max': load_data_txt('./data/random_sage_max_movie.txt'),
-                          'SimpleGCN_2Layer_Mean': load_data_txt('./data/random_simple_movie.txt'),
-                          'SimpleGCN_3Layer_Mean': load_data_txt('./data/random_simple_3_movie.txt'),
-                          'SimpleGCN_2Layer_Max': load_data_txt('./data/random_simple_max_movie.txt')
+                          'SGC_2Layer_Mean': load_data_txt('./data/random_simple_movie.txt'),
+                          'SGC_3Layer_Mean': load_data_txt('./data/random_simple_3_movie.txt'),
+                          'SGC_2Layer_Max': load_data_txt('./data/random_simple_max_movie.txt')
                           }
                 }
-
+words_gnne = {'20news_group': {'GCN_2Layer_Mean': load_data_txt('./data/gnne_gcn.txt'),
+                               'GCN_3Layer_Mean': load_data_txt('./data/gnne_gcn_3.txt'),
+                               'GCN_2Layer_Max': load_data_txt('./data/gnne_gcn_max.txt'),
+                               'GAT_2Layer_Mean': load_data_txt('./data/gnne_gat.txt'),
+                               'GAT_3Layer_Mean': load_data_txt('./data/gnne_gat_3.txt'),
+                               'GAT_2Layer_Max': load_data_txt('./data/gnne_gat_max.txt'),
+                               'SAGEGraph_2Layer_Mean': load_data_txt('./data/gnne_sage.txt'),
+                               'SAGEGraph_3Layer_Mean': load_data_txt('./data/gnne_sage_3.txt'),
+                               'SAGEGraph_2Layer_Max': load_data_txt('./data/gnne_sage_max.txt'),
+                               'SGC_2Layer_Mean': load_data_txt('./data/gnne_simple.txt'),
+                               'SGC_3Layer_Mean': load_data_txt('./data/gnne_simple_3.txt'),
+                               'SGC_2Layer_Max': load_data_txt('./data/gnne_simple_max.txt')
+                                },
+                'movie': {'GCN_2Layer_Mean': load_data_txt('./data/gnne_gcn_movie.txt'),
+                          'GCN_3Layer_Mean': load_data_txt('./data/gnne_gcn_3_movie.txt'),
+                          'GCN_2Layer_Max': load_data_txt('./data/gnne_gcn_max_movie.txt'),
+                          'GAT_2Layer_Mean': load_data_txt('./data/gnne_gat_movie.txt'),
+                          'GAT_3Layer_Mean': load_data_txt('./data/gnne_gat_3_movie.txt'),
+                          'GAT_2Layer_Max': load_data_txt('./data/gnne_gat_max_movie.txt'),
+                          'SAGEGraph_2Layer_Mean': load_data_txt('./data/gnne_sage_movie.txt'),
+                          'SAGEGraph_3Layer_Mean': load_data_txt('./data/gnne_sage_3_movie.txt'),
+                          'SAGEGraph_2Layer_Max': load_data_txt('./data/gnne_sage_max_movie.txt'),
+                          'SGC_2Layer_Mean': load_data_txt('./data/gnne_simple_movie.txt'),
+                          'SGC_3Layer_Mean': load_data_txt('./data/gnne_simple_3_movie.txt'),
+                          'SGC_2Layer_Max': load_data_txt('./data/gnne_simple_max_movie.txt')
+                          }
+                }
 predictions = {
                 '20news_group': {'MLP': load_data_csv('./data/mlp_news.csv'),
                                  'GCN_2Layer_Mean': load_data_csv('./data/gcn_2_mean_news.csv'),
@@ -187,9 +213,9 @@ predictions = {
                                  'SAGEGraph_2Layer_Mean': load_data_csv('./data/sage_2_mean_news.csv'),
                                  'SAGEGraph_3Layer_Mean': load_data_csv('./data/sage_3_mean_news.csv'),
                                  'SAGEGraph_2Layer_Max': load_data_csv('./data/sage_2_max_news.csv'),
-                                 'SimpleGCN_2Layer_Mean': load_data_csv('./data/simple_2_mean_news.csv'),
-                                 'SimpleGCN_3Layer_Mean': load_data_csv('./data/simple_3_mean_news.csv'),
-                                 'SimpleGCN_2Layer_Max': load_data_csv('./data/simple_2_max_news.csv')
+                                 'SGC_2Layer_Mean': load_data_csv('./data/simple_2_mean_news.csv'),
+                                 'SGC_3Layer_Mean': load_data_csv('./data/simple_3_mean_news.csv'),
+                                 'SGC_2Layer_Max': load_data_csv('./data/simple_2_max_news.csv')
                                 },
                 'movie': {'MLP': load_data_csv('./data/mlp_movie.csv'),
                           'GCN_2Layer_Mean': load_data_csv('./data/gcn_2_mean_movie.csv'),
@@ -201,9 +227,9 @@ predictions = {
                           'SAGEGraph_2Layer_Mean': load_data_csv('./data/sage_2_mean_movie.csv'),
                           'SAGEGraph_3Layer_Mean': load_data_csv('./data/sage_3_mean_movie.csv'),
                           'SAGEGraph_2Layer_Max': load_data_csv('./data/sage_2_max_movie.csv'),
-                          'SimpleGCN_2Layer_Mean': load_data_csv('./data/simple_2_mean_movie.csv'),
-                          'SimpleGCN_3Layer_Mean': load_data_csv('./data/simple_3_mean_movie.csv'),
-                          'SimpleGCN_2Layer_Max': load_data_csv('./data/simple_2_max_movie.csv')
+                          'SGC_2Layer_Mean': load_data_csv('./data/simple_2_mean_movie.csv'),
+                          'SGC_3Layer_Mean': load_data_csv('./data/simple_3_mean_movie.csv'),
+                          'SGC_2Layer_Max': load_data_csv('./data/simple_2_max_movie.csv')
                         }
 }
 
@@ -252,14 +278,16 @@ index = data[dataset].index[data[dataset]['data'] == st.session_state["option"]]
 st.subheader('Explainations')
 
 option_expl = st.selectbox("Select explainability methods",
-                      ['random', 'omission', 'saliency'])
+                      ['Random', 'Omission', 'Vanilla Gradient', 'GNNExplainer'])
 col = []
 
-if option_expl == 'omission':
+if option_expl == 'Omission':
     words = words_omission[dataset]
-elif option_expl == 'saliency':
+elif option_expl == 'Vanilla Gradient':
     words = words_saliency[dataset]
-elif option_expl == 'random':
+elif option_expl == 'GNNExplainer':
+    words = words_gnne[dataset]
+elif option_expl == 'Random':
     words = words_random[dataset]
 
 col = st.multiselect("Select models",
