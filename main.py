@@ -82,11 +82,12 @@ def jaccard_similarity(top_words_a, top_words_b, k=1000):
         return 1
     return len(A & B) / len(A | B)
 
-st.title('GNNs Explaination')
+st.title('Local explanations of GNN models for Document Classification')
 st.markdown('This website is created to visualise the local explanations generated in the '
         '"[Demystifying Graph Neural Networks in Document Classification: Analysis of Local Explanations](https://github.com/gabriele-dominici/L101_web)" '
         'project.')
-st.markdown('It is possible to select one of two document classification dataset, the interpretability methods used'
+st.markdown('Any other details about models, interpretability methods and experiments done are described in the report.')
+st.markdown('Here, it is possible to select one of two document classification dataset, the interpretability methods used'
         ' and the models to inspect.')
 data_load_state = st.text('Loading data... it can take a bit')
 
