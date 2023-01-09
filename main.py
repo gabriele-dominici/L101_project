@@ -86,7 +86,7 @@ st.title('GNNs Explaination')
 st.markdown('This website is created to visualise the local explanations generated in the '
         '"[Demystifying Graph Neural Networks in Document Classification: Analysis of Local Explanations](https://github.com/gabriele-dominici/L101_web)" '
         'project.')
-st.markdown('It is possible to select on of two document classification dataset, the interpretability methods used'
+st.markdown('It is possible to select one of two document classification dataset, the interpretability methods used'
         ' and the models to inspect.')
 data_load_state = st.text('Loading data... it can take a bit')
 
