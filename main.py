@@ -43,7 +43,7 @@ def compose_text(tokenized_text, best_words, doc):
                 counter += 1
                 if tmp[-1:] == '\n':
                     result += tmp[:-1]
-                    result += ' ' + tmp[-1:]
+                    result += '  ' + tmp[-1:]
                     # result += tmp[-1:]
                     doc = doc[len(tmp):]
                     counter = 1
@@ -280,7 +280,7 @@ st.markdown(label_text)
 index = data[dataset].index[data[dataset]['data'] == st.session_state["option"]]
 st.subheader('Explainations')
 
-option_expl = st.selectbox("Select explainability methods",
+option_expl = st.selectbox("Select interpretability methods",
                       ['Random', 'Omission', 'Vanilla Gradient', 'GNNExplainer'])
 col = []
 
