@@ -313,8 +313,10 @@ for model in col:
 
     st.subheader(model)
     st.text(f'Prediction of the model: {pred_label}')
-    annotated_text(*compose_text(st.session_state['tokenized'], subset_words[model], st.session_state["option"]))
-
+    try:
+        annotated_text(*compose_text(st.session_state['tokenized'], subset_words[model], st.session_state["option"]))
+    except Exception as e:
+        print(e)
 st.subheader('Created Graph')
 st.graphviz_chart(create_graph(st.session_state['tokenized'] , vocab[dataset]))
 
