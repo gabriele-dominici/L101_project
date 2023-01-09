@@ -83,7 +83,7 @@ def jaccard_similarity(top_words_a, top_words_b, k=1000):
     return len(A & B) / len(A | B)
 
 st.title('GNNs Explaination')
-st.text('This website is created to visualise the local explanations generated in the '
+st.markdown('This website is created to visualise the local explanations generated in the '
         '"[Demystifying Graph Neural Networks in Document Classification: Analysis of Local Explanations](https://github.com/gabriele-dominici/L101_web)" '
         'project.')
 st.text('It is possible to select on of two document classification dataset, the interpretability methods used'
@@ -275,7 +275,7 @@ elif label == 1 and dataset == 'movie':
     label_text = '**Positive**'
 elif label == 0 and dataset == 'movie':
     label_text = '**Negative**'
-st.text(label_text)
+st.markdown(label_text)
 
 index = data[dataset].index[data[dataset]['data'] == st.session_state["option"]]
 st.subheader('Explainations')
@@ -316,7 +316,7 @@ for model in col:
     subset_words[model] = words_selected[:k_tmp]
 
     st.subheader(model)
-    st.text(f'Prediction of the model: {pred_label}')
+    st.markdown(f'Prediction of the model: {pred_label}')
     try:
         annotated_text(*compose_text(st.session_state['tokenized'], subset_words[model], st.session_state["option"]))
     except Exception as e:
