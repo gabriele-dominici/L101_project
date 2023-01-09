@@ -30,10 +30,10 @@ def compose_text(tokenized_text, best_words, doc):
             if token in best_words:
                 index = best_words.index(token)
                 token_mod = doc[:len(token)]
-                result += [(token_mod, index)]
+                result += [(str(token_mod), index)]
             else:
                 token_mod = doc[:len(token)]
-                result += [token_mod]
+                result += [str(token_mod)]
             doc = doc[len(token):]
         else:
             counter = 1
