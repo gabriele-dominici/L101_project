@@ -249,53 +249,51 @@ vocab = {'20news_group': vectorizer['20news_group'].vocabulary_,
          'movie': vectorizer['movie'].vocabulary_}
 
 data_load_state.text('Loading data...done!')
-with st.form(key='my_form'):
-    dataset = st.selectbox("Select the dataset",
-                          ['20news_group',
-                           'movie'])
+dataset = st.selectbox("Select the dataset",
+                      ['20news_group',
+                       'movie'])
 
-    st.session_state["option"] = st.selectbox("Select from examples",
-                          data[dataset]['data'])
-
+st.session_state["option"] = st.selectbox("Select from examples",
+                      data[dataset]['data'])
 
 
-    st.subheader('Chosen Text')
-    st.text(st.session_state["option"])
 
-    st.subheader('Label')
-    label = data[dataset][data[dataset]['data'] == st.session_state["option"]]['label'].iloc[0]
-    if label == 1 and dataset == '20news_group':
-        label_text = 'Atheism'
-    elif label == 0 and dataset == '20news_group':
-        label_text = 'Christian'
-    elif label == 1 and dataset == 'movie':
-        label_text = 'Positive'
-    elif label == 0 and dataset == 'movie':
-        label_text = 'Negative'
-    st.text(label_text)
+st.subheader('Chosen Text')
+st.text(st.session_state["option"])
 
-    index = data[dataset].index[data[dataset]['data'] == st.session_state["option"]]
-    st.subheader('Explainations')
+st.subheader('Label')
+label = data[dataset][data[dataset]['data'] == st.session_state["option"]]['label'].iloc[0]
+if label == 1 and dataset == '20news_group':
+    label_text = 'Atheism'
+elif label == 0 and dataset == '20news_group':
+    label_text = 'Christian'
+elif label == 1 and dataset == 'movie':
+    label_text = 'Positive'
+elif label == 0 and dataset == 'movie':
+    label_text = 'Negative'
+st.text(label_text)
 
-    option_expl = st.selectbox("Select explainability methods",
-                          ['Random', 'Omission', 'Vanilla Gradient', 'GNNExplainer'])
-    col = []
+index = data[dataset].index[data[dataset]['data'] == st.session_state["option"]]
+st.subheader('Explainations')
 
-    if option_expl == 'Omission':
-        words = words_omission[dataset]
-    elif option_expl == 'Vanilla Gradient':
-        words = words_saliency[dataset]
-    elif option_expl == 'GNNExplainer':
-        words = words_gnne[dataset]
-    elif option_expl == 'Random':
-        words = words_random[dataset]
+option_expl = st.selectbox("Select explainability methods",
+                      ['Random', 'Omission', 'Vanilla Gradient', 'GNNExplainer'])
+col = []
 
-    col = st.multiselect("Select models",
-                          words.keys())
+if option_expl == 'Omission':
+    words = words_omission[dataset]
+elif option_expl == 'Vanilla Gradient':
+    words = words_saliency[dataset]
+elif option_expl == 'GNNExplainer':
+    words = words_gnne[dataset]
+elif option_expl == 'Random':
+    words = words_random[dataset]
 
-    st.session_state["k"] = st.slider('How many top words would you like to see?', min_value=5, max_value=50, value=10,
-                                      step=1)
-    submit_button = st.form_submit_button(label='Submit')
+col = st.multiselect("Select models",
+                      words.keys())
+
+st.session_state["k"] = st.slider('How many top words would you like to see?', min_value=5, max_value=50, value=10,
+                                  step=1)
 
 st.session_state['tokenized'] = tokenize_func[dataset](st.session_state["option"])
 subset_words = {}
