@@ -83,7 +83,11 @@ def jaccard_similarity(top_words_a, top_words_b, k=1000):
     return len(A & B) / len(A | B)
 
 st.title('GNNs Explaination')
-
+st.text('This website is created to visualise the local explanations generated in the '
+        '"[Demystifying Graph Neural Networks in Document Classification: Analysis of Local Explanations](https://github.com/gabriele-dominici/L101_web)" '
+        'project.')
+st.text('It is possible to select on of two document classification dataset, the interpretability methods used'
+        ' and the models to inspect.')
 data_load_state = st.text('Loading data... it can take a bit')
 
 words_omission ={'20news_group': {'MLP': load_data_txt('./data/omission_mlp.txt'),
@@ -258,19 +262,19 @@ st.session_state["option"] = st.selectbox("Select from examples",
 
 
 
-st.subheader('Chosen Text')
+st.subheader('Chosen Document')
 st.text(st.session_state["option"])
 
 st.subheader('Label')
 label = data[dataset][data[dataset]['data'] == st.session_state["option"]]['label'].iloc[0]
 if label == 1 and dataset == '20news_group':
-    label_text = 'Atheism'
+    label_text = '**Atheism**'
 elif label == 0 and dataset == '20news_group':
-    label_text = 'Christian'
+    label_text = '**Christian**'
 elif label == 1 and dataset == 'movie':
-    label_text = 'Positive'
+    label_text = '**Positive**'
 elif label == 0 and dataset == 'movie':
-    label_text = 'Negative'
+    label_text = '**Negative**'
 st.text(label_text)
 
 index = data[dataset].index[data[dataset]['data'] == st.session_state["option"]]
@@ -301,13 +305,13 @@ for model in col:
     words_selected = words[model][index[0]]
     pred_label = predictions[dataset][model].iloc[index[0]][0]
     if pred_label == 1 and dataset == '20news_group':
-        pred_label = 'Atheism'
+        pred_label = '**Atheism**'
     elif pred_label == 0 and dataset == '20news_group':
-        pred_label = 'Christian'
+        pred_label = '**Christian**'
     elif pred_label == 1 and dataset == 'movie':
-        pred_label = 'Positive'
+        pred_label = '**Positive**'
     elif pred_label == 0 and dataset == 'movie':
-        pred_label = 'Negative'
+        pred_label = '**Negative**'
     k_tmp = min(st.session_state["k"], len(words_selected))
     subset_words[model] = words_selected[:k_tmp]
 
@@ -318,10 +322,11 @@ for model in col:
     except Exception as e:
         print(e)
 st.subheader('Created Graph')
-st.graphviz_chart(create_graph(st.session_state['tokenized'] , vocab[dataset]))
+st.text('The following graph is the one used by the models for this document')
+st.graphviz_chart(create_graph(st.session_state['tokenized'], vocab[dataset]))
 
 st.subheader('Jaccard Similarity')
-
+st.text('The table shows the Jaccard Similarity between models chosen computed on the the local explanations shown ')
 df = pd.DataFrame([], columns=col)
 
 for i, el1 in enumerate(col):
