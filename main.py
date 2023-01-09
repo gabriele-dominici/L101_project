@@ -44,7 +44,7 @@ def compose_text(tokenized_text, best_words, doc):
                 if tmp[-1:] == '\n':
                     result += tmp[:-1]
                     result += tmp[-1:]
-                    result += tmp[-1:]
+                    # result += tmp[-1:]
                     doc = doc[len(tmp):]
                     counter = 1
                     tmp = ""
