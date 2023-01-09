@@ -86,7 +86,7 @@ st.title('GNNs Explaination')
 st.markdown('This website is created to visualise the local explanations generated in the '
         '"[Demystifying Graph Neural Networks in Document Classification: Analysis of Local Explanations](https://github.com/gabriele-dominici/L101_web)" '
         'project.')
-st.text('It is possible to select on of two document classification dataset, the interpretability methods used'
+st.markdown('It is possible to select on of two document classification dataset, the interpretability methods used'
         ' and the models to inspect.')
 data_load_state = st.text('Loading data... it can take a bit')
 
@@ -263,7 +263,7 @@ st.session_state["option"] = st.selectbox("Select from examples",
 
 
 st.subheader('Chosen Document')
-st.text(st.session_state["option"])
+st.markdown(st.session_state["option"])
 
 st.subheader('Label')
 label = data[dataset][data[dataset]['data'] == st.session_state["option"]]['label'].iloc[0]
@@ -322,11 +322,11 @@ for model in col:
     except Exception as e:
         print(e)
 st.subheader('Created Graph')
-st.text('The following graph is the one used by the models for this document')
+st.markdown('The following graph is the one used by the models for this document')
 st.graphviz_chart(create_graph(st.session_state['tokenized'], vocab[dataset]))
 
 st.subheader('Jaccard Similarity')
-st.text('The table shows the Jaccard Similarity between models chosen computed on the the local explanations shown ')
+st.markdown('The table shows the Jaccard Similarity between models chosen computed on the the local explanations shown ')
 df = pd.DataFrame([], columns=col)
 
 for i, el1 in enumerate(col):
