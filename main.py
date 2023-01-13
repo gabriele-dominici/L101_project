@@ -264,7 +264,7 @@ st.session_state["option"] = st.selectbox("Select from examples",
 
 
 st.subheader('Chosen Document')
-st.text(st.session_state["option"])
+st.markdown(st.session_state["option"])
 
 st.subheader('Label')
 label = data[dataset][data[dataset]['data'] == st.session_state["option"]]['label'].iloc[0]
